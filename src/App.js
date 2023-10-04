@@ -1,23 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Items from "./components/Items";
+import CarNav from "./components/CarNav" 
+import Page from "./components/Page";
+import { useState } from "react";
 function App() {
+
+  const [dataFromChild, setDataFromChild] = useState('');
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="m-3">
+        <CarNav sendDataToParent={setDataFromChild}/>
+        {/* <Items/> file inside the page file */}
+        <Page sendData={dataFromChild}/>
+        
+
     </div>
   );
 }
